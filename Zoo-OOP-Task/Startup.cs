@@ -9,8 +9,6 @@ namespace Zoo_OOP_Task
     {
         static void Main()
         {
-            var tiger = new Tiger("Jumbo", 12);
-            Console.WriteLine(tiger.CalculateLifeExpectancy());
         }
     }
 }
