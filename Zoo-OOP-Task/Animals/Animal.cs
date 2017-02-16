@@ -5,6 +5,8 @@ namespace Zoo_OOP_Task.Animals
 
     public abstract class Animal
     {
+        private const byte DefaultStaminaForAnimal = 100;
+
         private string name;
 
         private Species specie;
@@ -20,18 +22,13 @@ namespace Zoo_OOP_Task.Animals
         protected int hunger;
 
         public Animal(Species specie, byte lowLifespan, byte highLifespan, string name, uint age)
+            :this(specie, lowLifespan, highLifespan, name, age, new DateTime(), DefaultStaminaForAnimal)
         {
-            this.Name = name;
-            this.Age = age;
-            this.averageLifeSpan = GenerateRandomTigerLifespanInRange(new Random(), lowLifespan, highLifespan);
         }
 
         public Animal(Species specie, byte lowLifespan, byte highLifespan, string name, uint age, DateTime birthDay)
+            : this(specie, lowLifespan, highLifespan, name, age, birthDay, DefaultStaminaForAnimal)
         {
-            this.Specie = specie;
-            this.Name = name;
-            this.Birthdate = birthDay;
-            this.averageLifeSpan = GenerateRandomTigerLifespanInRange(new Random(), lowLifespan, highLifespan);
         }
 
         public Animal(Species specie, byte lowLifespan, byte highLifespan, string name, uint age, DateTime birthDay, int stamina)
@@ -109,6 +106,11 @@ namespace Zoo_OOP_Task.Animals
         }
 
         public virtual int Stamina { get; private set; }
+
+        public virtual bool IsAlive(uint lifeExpectancy)
+        {
+            return lifeExpectancy > 0;
+        }
 
         public abstract string Eat();
 
