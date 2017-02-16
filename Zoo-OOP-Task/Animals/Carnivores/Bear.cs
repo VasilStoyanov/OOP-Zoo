@@ -11,6 +11,11 @@ namespace Zoo_OOP_Task.Animals.Carnivores
 
         }
 
+        public override void DecreaseStamina(int staminaToDecrease)
+        {
+            throw new NotImplementedException();
+        }
+
         public override string Eat()
         {
             throw new NotImplementedException();

@@ -35,6 +35,5 @@ namespace Zoo_OOP_Task.Animals.Carnivores
         {
             return String.Format("Tiger " + this.Name + " says: " + TigerSpeech);
         }
-
     }
 }

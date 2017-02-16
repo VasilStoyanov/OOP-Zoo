@@ -107,12 +107,22 @@ namespace Zoo_OOP_Task.Animals
 
         public virtual int Stamina { get; private set; }
 
-        public virtual bool IsAlive(uint lifeExpectancy)
+        protected virtual bool IsAlive(uint lifeExpectancy)
         {
             return lifeExpectancy > 0;
         }
 
+        protected virtual bool IsActive()
+        {
+            return this.Stamina > 0;
+        }
+
         public abstract string Eat();
+
+        public virtual void DecreaseStamina(int staminaToDecrease)
+        {
+            this.Stamina -= staminaToDecrease;
+        }
 
         public abstract string Speak();
 
