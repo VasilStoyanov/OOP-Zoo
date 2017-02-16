@@ -49,7 +49,7 @@
     <Compile Include="Animals\Species.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ZooKeepers\ZooKeeper.cs" />
+    <Compile Include="ZooKeeper\ZooKeeper.cs" />
     <Compile Include="Zoo\Zoo.cs" />
   </ItemGroup>
   <ItemGroup>

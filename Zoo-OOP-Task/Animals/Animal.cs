@@ -83,12 +83,11 @@ namespace Zoo_OOP_Task.Animals
             }
             set
             {
-                if(value != null)
-                {
-                    this.birthDate = value;
-                }
+                this.birthDate = value;
             }
         }
+
+        public virtual string ZooKeeperId { get; set; } = "";
 
         public virtual uint Age
         {
