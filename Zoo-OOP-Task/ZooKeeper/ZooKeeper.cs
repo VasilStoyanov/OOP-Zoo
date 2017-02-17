@@ -80,24 +80,23 @@ namespace Zoo_OOP_Task.ZooKeepers
                 return;
             }
 
-            int amountFood = new Random().Next(1, 5);
-
-            switch(animalToFeed.Specie)
+            Random randomFoodAmount = new Random();
+            switch (animalToFeed.Specie)
             {
                 case Species.Carnivore:
-                    AnimalFood carnivoreFood = new AnimalFood(AnimalFoodType.Meat, (uint)amountFood);
+                    AnimalFood carnivoreFood = new AnimalFood(AnimalFoodType.Meat, (uint)randomFoodAmount.Next(1, 5));
                     animalToFeed.Eat(carnivoreFood);
                     break;
                 case Species.Omnivore:
-                    AnimalFood omnivoreFood = new AnimalFood(AnimalFoodType.Mandja, (uint)amountFood);
+                    AnimalFood omnivoreFood = new AnimalFood(AnimalFoodType.Mandja, (uint)randomFoodAmount.Next(1, 5));
                     animalToFeed.Eat(omnivoreFood);
                     break;
                 case Species.Mammal:
-                    AnimalFood mammalFood = new AnimalFood(AnimalFoodType.Milk, (uint)amountFood);
+                    AnimalFood mammalFood = new AnimalFood(AnimalFoodType.Milk, (uint)randomFoodAmount.Next(1, 5));
                     animalToFeed.Eat(mammalFood);
                     break;
                 case Species.Herbivore:
-                    AnimalFood herbivoreFood = new AnimalFood(AnimalFoodType.Grass, (uint)amountFood);
+                    AnimalFood herbivoreFood = new AnimalFood(AnimalFoodType.Grass, (uint)randomFoodAmount.Next(1, 5));
                     animalToFeed.Eat(herbivoreFood);
                     break;
                 default:

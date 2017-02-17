@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimalFoods\AnimalFood.cs" />
+    <Compile Include="AnimalFoods\AnimalFoodType.cs" />
     <Compile Include="Animals\Animal.cs" />
-    <Compile Include="Animals\Carnivores\Bear.cs" />
+    <Compile Include="Animals\Omnivore\Bear.cs" />
     <Compile Include="Animals\Carnivores\Tiger.cs" />
     <Compile Include="Animals\Species.cs" />
     <Compile Include="Startup.cs" />
@@ -58,7 +60,6 @@
   <ItemGroup>
     <Folder Include="Animals\Herbivores\" />
     <Folder Include="Animals\Mammals\" />
-    <Folder Include="Animals\Omnivore\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

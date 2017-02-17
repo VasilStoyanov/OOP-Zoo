@@ -26,7 +26,7 @@
         {
             get
             {
-                switch(foodType)
+                switch(this.FoodType)
                 {
                     case AnimalFoodType.Grass:
                         return GrassEnergyPerHundredGrams * this.Amount;

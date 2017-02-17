@@ -23,19 +23,18 @@ namespace Zoo_OOP_Task.Animals
 
         protected int hunger;
 
-        public Animal(Species specie, byte lowLifespan, byte highLifespan, string name, uint age)
-            :this(specie, lowLifespan, highLifespan, name, age, new DateTime(), DefaultStaminaForAnimal)
+        public Animal(byte lowLifespan, byte highLifespan, string name, uint age)
+            :this(lowLifespan, highLifespan, name, age, new DateTime(), DefaultStaminaForAnimal)
         {
         }
 
-        public Animal(Species specie, byte lowLifespan, byte highLifespan, string name, uint age, DateTime birthDay)
-            : this(specie, lowLifespan, highLifespan, name, age, birthDay, DefaultStaminaForAnimal)
+        public Animal(byte lowLifespan, byte highLifespan, string name, uint age, DateTime birthDay)
+            : this(lowLifespan, highLifespan, name, age, birthDay, DefaultStaminaForAnimal)
         {
         }
 
-        public Animal(Species specie, byte lowLifespan, byte highLifespan, string name, uint age, DateTime birthDay, int stamina)
+        public Animal(byte lowLifespan, byte highLifespan, string name, uint age, DateTime birthDay, int stamina)
         {
-            this.Specie = specie;
             this.Name = name;
             this.Age = age;
             this.Birthdate = birthDay;
@@ -65,13 +64,7 @@ namespace Zoo_OOP_Task.Animals
             }
         }
 
-        public abstract Species Specie
-        {
-            get
-            {
-                return this.specie;
-            }
-        }
+        public abstract Species Specie { get; }
 
         public virtual DateTime Birthdate
         {

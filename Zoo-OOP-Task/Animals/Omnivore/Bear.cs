@@ -2,13 +2,22 @@
 namespace Zoo_OOP_Task.Animals.Carnivores
 {
     using System;
+    using AnimalFood;
 
     public class Bear : Animal
     {
         public Bear(string name, uint age)
-            :base(Species.Omnivore, 12, 110, name, age)
+            :base(12, 110, name, age)
         {
 
+        }
+
+        public override Species Specie
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public override void DecreaseStamina(int staminaToDecrease)
@@ -16,7 +25,7 @@ namespace Zoo_OOP_Task.Animals.Carnivores
             throw new NotImplementedException();
         }
 
-        public override string Eat()
+        public override void Eat(AnimalFood food)
         {
             throw new NotImplementedException();
         }

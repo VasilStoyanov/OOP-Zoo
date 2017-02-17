@@ -13,17 +13,17 @@ namespace Zoo_OOP_Task.Animals.Carnivores
         private const byte TigerAverageHighLifespan = 26;
 
         public Tiger(string name, uint age)
-            : base(Species.Carnivore, TigerAverageLowLifespan, TigerAverageHighLifespan, name, age)
+            : base(TigerAverageLowLifespan, TigerAverageHighLifespan, name, age)
         {
         }
 
         public Tiger(string name, uint age, DateTime birthDay)
-            : base(Species.Carnivore, TigerAverageLowLifespan, TigerAverageHighLifespan, name, age, birthDay)
+            : base(TigerAverageLowLifespan, TigerAverageHighLifespan, name, age, birthDay)
         {
         }
 
         public Tiger(string name, uint age, DateTime birthDay, int stamina)
-            : base(Species.Carnivore, TigerAverageLowLifespan, TigerAverageHighLifespan, name, age, birthDay, stamina)
+            : base(TigerAverageLowLifespan, TigerAverageHighLifespan, name, age, birthDay, stamina)
         {
         }
 
@@ -43,8 +43,8 @@ namespace Zoo_OOP_Task.Animals.Carnivores
                 return;
             }
 
-            Console.WriteLine(String.Format("Tiger {0} eated some meat and increased stamina with {1)"),
-                this.Name, food.Calories);
+            Console.WriteLine(String.Format("Tiger {0} eated some meat and increased stamina with {1}",
+                this.Name, food.Calories));
 
             this.IncreaseStamina((int)food.Calories);
         }
