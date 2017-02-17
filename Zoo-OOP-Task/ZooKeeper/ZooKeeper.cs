@@ -11,6 +11,8 @@ namespace Zoo_OOP_Task.ZooKeepers
     {
         private const byte MinimumAssaignedAnimalsLength = 2;
 
+        private Random randomFoodAmount = new Random();
+
         private string id;
 
         private IList<Animal> assignedAnimals;
@@ -41,7 +43,7 @@ namespace Zoo_OOP_Task.ZooKeepers
             }
             set
             {
-                if(value == null)
+                if (value == null)
                 {
                     throw new ArgumentNullException("Assaigned animals cannot be null!");
                 }
@@ -57,11 +59,11 @@ namespace Zoo_OOP_Task.ZooKeepers
 
         public void Assign(Animal animal)
         {
-            if(animal == null)
+            if (animal == null)
             {
                 throw new ArgumentNullException("Asign animal cannot be null!");
             }
-            else if(animal.ZooKeeperId.Length > 0)
+            else if (animal.ZooKeeperId.Length > 0)
             {
                 Console.WriteLine("This animal is already asigned to a keeper. Aborting.");
                 return;
@@ -74,17 +76,22 @@ namespace Zoo_OOP_Task.ZooKeepers
         //TODO: Remove hidden dependencies
         public void Feed(Animal animalToFeed)
         {
-            if(animalToFeed.ZooKeeperId != this.id)
+            if (animalToFeed.ZooKeeperId != this.id)
             {
                 Console.WriteLine("This animal is not asigned to this zoo keeper!");
                 return;
             }
 
-            Random randomFoodAmount = new Random();
+            // If the animal is dead, we dont feed it!
+            if(!animalToFeed.IsAlive())
+            {
+                return;
+            }
+
             switch (animalToFeed.Specie)
             {
                 case Species.Carnivore:
-                    AnimalFood carnivoreFood = new AnimalFood(AnimalFoodType.Meat, (uint)randomFoodAmount.Next(1, 5));
+                    AnimalFood carnivoreFood = new AnimalFood(AnimalFoodType.Meat, (uint)randomFoodAmount.Next(1, 6));
                     animalToFeed.Eat(carnivoreFood);
                     break;
                 case Species.Omnivore:

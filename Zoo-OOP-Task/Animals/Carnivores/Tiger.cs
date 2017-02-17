@@ -37,12 +37,13 @@ namespace Zoo_OOP_Task.Animals.Carnivores
 
         public override void Eat(AnimalFood food)
         {
-            if(food.FoodType != AnimalFoodType.Meat)
+            if (food.FoodType != AnimalFoodType.Meat)
             {
                 Console.WriteLine("I am a carnivore. I eat only meat!");
                 return;
             }
 
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(String.Format("Tiger {0} eated some meat and increased stamina with {1}",
                 this.Name, food.Calories));
 

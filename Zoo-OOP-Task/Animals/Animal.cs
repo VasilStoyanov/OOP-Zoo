@@ -95,14 +95,29 @@ namespace Zoo_OOP_Task.Animals
             }
         }
 
-        public virtual int Stamina { get; private set; }
-
-        protected virtual bool IsAlive(uint lifeExpectancy)
+        public virtual int Stamina
         {
-            return lifeExpectancy > 0;
+            get
+            {
+                return this.stamina;
+            }
+            private set
+            {
+                this.stamina = value;
+                if(this.stamina <= 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("{0} DIED!", this.Name);
+                }
+            }
         }
 
-        protected virtual bool IsActive()
+        public virtual bool IsAlive()
+        {
+            return (this.averageLifeSpan - this.age) > 0 ? true : false;
+        }
+
+        public virtual bool IsActive()
         {
             return this.Stamina > 0;
         }
@@ -111,6 +126,7 @@ namespace Zoo_OOP_Task.Animals
 
         public virtual void DecreaseStamina(int staminaToDecrease)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(String.Format("{0} decreased stamina by {1}",
                 this.Name, staminaToDecrease));
 
@@ -119,10 +135,11 @@ namespace Zoo_OOP_Task.Animals
 
         public virtual void IncreaseStamina(int staminaToIncrease)
         {
-            Console.WriteLine(String.Format("{0} increased stamina by {1}",
-                this.Name, staminaToIncrease));
-
             this.Stamina += staminaToIncrease;
+            if(this.Stamina > 100)
+            {
+                this.Stamina = 100;
+            }
         }
 
         public abstract string Speak();

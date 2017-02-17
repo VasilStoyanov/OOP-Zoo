@@ -2,13 +2,13 @@
 {
     public class AnimalFood
     {
-        private const byte GrassEnergyPerHundredGrams = 20;
+        private const byte GrassEnergyPerHundredGrams = 10;
 
-        private const byte MandjaEnergyPerHundredGrams = 50;
+        private const byte MandjaEnergyPerHundredGrams = 40;
 
-        private const byte MeatEnergyPerHundredGrams = 40;
+        private const byte MeatEnergyPerHundredGrams = 30;
 
-        private const byte MilkEnergyPerHundredGrams = 30;
+        private const byte MilkEnergyPerHundredGrams = 20;
 
         private const byte DefaultCalories = 0;
 
@@ -26,7 +26,7 @@
         {
             get
             {
-                switch(this.FoodType)
+                switch (this.FoodType)
                 {
                     case AnimalFoodType.Grass:
                         return GrassEnergyPerHundredGrams * this.Amount;

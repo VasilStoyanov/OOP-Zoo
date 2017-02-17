@@ -38,7 +38,10 @@ namespace Zoo_OOP_Task
             zoo.AddZooKeeper(peshoTheKeeper);
             zoo.AddZooKeeper(goshoTheKeeper);
 
-            zoo.TriggerCycle();
+            for (int i = 0; i < 20; i++)
+            {
+                zoo.TriggerCycle();
+            }
         }
     }
 }

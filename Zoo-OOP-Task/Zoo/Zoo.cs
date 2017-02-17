@@ -8,7 +8,7 @@ namespace Zoo_OOP_Task.ZooNS
 
     public sealed class Zoo
     {
-        private const byte ZooKepperMood = 5;
+        private const byte ZooKepperMood = 3;
 
         private IList<Animal> animals;
         private IList<ZooKeeper> zooKeepers;
@@ -81,6 +81,7 @@ namespace Zoo_OOP_Task.ZooNS
 
         public void TriggerCycle()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("=== Cycle {0} ===", this.currentCycle + 1);
             if (this.zooKeepers.Count == 0 || this.animals.Count < 2)
             {
@@ -100,9 +101,9 @@ namespace Zoo_OOP_Task.ZooNS
                 foreach (Animal assignedAnimal in zooKeeper.AssignnedAnimals)
                 {
                     int keeperIsInMood = moodGenerator.Next(1, 10);
-   
                     if (keeperIsInMood < ZooKepperMood)
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Zookeeper with ID:{0} is not in mood and will not feed {1} {2}",
                             zooKeeper.Id, assignedAnimal.Specie, assignedAnimal.Name);
 
