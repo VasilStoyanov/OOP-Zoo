@@ -5,6 +5,7 @@ namespace Zoo_OOP_Task.Animals
     {
         Carnivore,
         Mammal,
-        Herbivore
+        Herbivore,
+        Omnivore
     }
 }

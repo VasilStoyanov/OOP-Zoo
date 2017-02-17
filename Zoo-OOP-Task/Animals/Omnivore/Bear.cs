@@ -6,7 +6,7 @@ namespace Zoo_OOP_Task.Animals.Carnivores
     public class Bear : Animal
     {
         public Bear(string name, uint age)
-            :base(Species.Carnivore, 12, 110, name, age)
+            :base(Species.Omnivore, 12, 110, name, age)
         {
 
         }

@@ -5,6 +5,7 @@ namespace Zoo_OOP_Task.ZooKeepers
     using System.Collections.Generic;
 
     using Animals;
+    using AnimalFood;
 
     public sealed class ZooKeeper
     {
@@ -17,14 +18,26 @@ namespace Zoo_OOP_Task.ZooKeepers
         public ZooKeeper()
         {
             this.AssignnedAnimals = new List<Animal>();
-            this.id = string.Format("{0}", Guid.NewGuid());
+            this.Id = string.Format("{0}", Guid.NewGuid());
+        }
+
+        public string Id
+        {
+            get
+            {
+                return this.id;
+            }
+            private set
+            {
+                this.id = value;
+            }
         }
 
         public IList<Animal> AssignnedAnimals
         {
             get
             {
-                return new List<Animal>(this.assignedAnimals);
+                return new List<Animal>(assignedAnimals);
             }
             set
             {
@@ -35,6 +48,11 @@ namespace Zoo_OOP_Task.ZooKeepers
 
                 this.assignedAnimals = new List<Animal>(value);
             }
+        }
+
+        public int AssignnedAnimalsCount()
+        {
+            return this.assignedAnimals.Count;
         }
 
         public void Assign(Animal animal)
@@ -53,5 +71,38 @@ namespace Zoo_OOP_Task.ZooKeepers
             this.assignedAnimals.Add(animal);
         }
 
+        //TODO: Remove hidden dependencies
+        public void Feed(Animal animalToFeed)
+        {
+            if(animalToFeed.ZooKeeperId != this.id)
+            {
+                Console.WriteLine("This animal is not asigned to this zoo keeper!");
+                return;
+            }
+
+            int amountFood = new Random().Next(1, 5);
+
+            switch(animalToFeed.Specie)
+            {
+                case Species.Carnivore:
+                    AnimalFood carnivoreFood = new AnimalFood(AnimalFoodType.Meat, (uint)amountFood);
+                    animalToFeed.Eat(carnivoreFood);
+                    break;
+                case Species.Omnivore:
+                    AnimalFood omnivoreFood = new AnimalFood(AnimalFoodType.Mandja, (uint)amountFood);
+                    animalToFeed.Eat(omnivoreFood);
+                    break;
+                case Species.Mammal:
+                    AnimalFood mammalFood = new AnimalFood(AnimalFoodType.Milk, (uint)amountFood);
+                    animalToFeed.Eat(mammalFood);
+                    break;
+                case Species.Herbivore:
+                    AnimalFood herbivoreFood = new AnimalFood(AnimalFoodType.Grass, (uint)amountFood);
+                    animalToFeed.Eat(herbivoreFood);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

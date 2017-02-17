@@ -14,7 +14,8 @@ namespace Zoo_OOP_Task
             var whiteTiger = new Tiger("Pesho", 0);
 
             var keeper = new ZooKeeper();
-            //keeper.Assign(whiteTiger);
+            keeper.Assign(whiteTiger);
+            Console.WriteLine(keeper.AssignnedAnimals[0].Name);
         }
     }
 }

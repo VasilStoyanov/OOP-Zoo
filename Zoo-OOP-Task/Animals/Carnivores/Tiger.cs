@@ -2,6 +2,7 @@
 namespace Zoo_OOP_Task.Animals.Carnivores
 {
     using System;
+    using AnimalFood;
 
     public class Tiger : Animal
     {
@@ -26,9 +27,26 @@ namespace Zoo_OOP_Task.Animals.Carnivores
         {
         }
 
-        public override string Eat()
+        public override Species Specie
         {
-            return String.Format("Tiger {0} starts to eat...", this.Name);
+            get
+            {
+                return Species.Carnivore;
+            }
+        }
+
+        public override void Eat(AnimalFood food)
+        {
+            if(food.FoodType != AnimalFoodType.Meat)
+            {
+                Console.WriteLine("I am a carnivore. I eat only meat!");
+                return;
+            }
+
+            Console.WriteLine(String.Format("Tiger {0} eated some meat and increased stamina with {1)"),
+                this.Name, food.Calories);
+
+            this.IncreaseStamina((int)food.Calories);
         }
 
         public override string Speak()

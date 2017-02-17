@@ -3,6 +3,8 @@ namespace Zoo_OOP_Task.Animals
 {
     using System;
 
+    using AnimalFood;
+
     public abstract class Animal
     {
         private const byte DefaultStaminaForAnimal = 100;
@@ -63,15 +65,11 @@ namespace Zoo_OOP_Task.Animals
             }
         }
 
-        public virtual Species Specie
+        public abstract Species Specie
         {
             get
             {
                 return this.specie;
-            }
-            set
-            {
-                this.specie = value;
             }
         }
 
@@ -116,11 +114,22 @@ namespace Zoo_OOP_Task.Animals
             return this.Stamina > 0;
         }
 
-        public abstract string Eat();
+        public abstract void Eat(AnimalFood food);
 
         public virtual void DecreaseStamina(int staminaToDecrease)
         {
+            Console.WriteLine(String.Format("{0} decreased stamina by {1}",
+                this.Name, staminaToDecrease));
+
             this.Stamina -= staminaToDecrease;
+        }
+
+        public virtual void IncreaseStamina(int staminaToIncrease)
+        {
+            Console.WriteLine(String.Format("{0} increased stamina by {1}",
+                this.Name, staminaToIncrease));
+
+            this.Stamina += staminaToIncrease;
         }
 
         public abstract string Speak();

@@ -5,9 +5,12 @@ namespace Zoo_OOP_Task.Zoo
 
     using Animals;
     using ZooKeepers;
+    using System;
 
     public sealed class Zoo
     {
+        private const byte ZooKepperMood = 4;
+
         private IList<Animal> animals;
         private IList<ZooKeeper> zooKeepers;
 
@@ -48,14 +51,36 @@ namespace Zoo_OOP_Task.Zoo
 
         public void TriggerCycle()
         {
-            // Zoo keeper feed animals
-            // Animals become tired
-            // Check if animal should age (10 cycles)
-        }
+            foreach(ZooKeeper zooKeeper in this.zooKeepers)
+            {
+                if(zooKeeper.AssignnedAnimals.Count < 2)
+                {
+                    Console.WriteLine("Zookeeper with ID:{0} has less than 2 asigned animals, so he wont do anything.",
+                        zooKeeper.Id);
+                }
+                foreach(Animal assignedAnimal in zooKeeper.AssignnedAnimals)
+                {
+                    var keeperIsInMood = new Random().Next(1, 10);
+                    if(keeperIsInMood < ZooKepperMood)
+                    {
+                        continue;
+                    }
 
-        public void FeedAnimal(ZooKeeper zooKeeper)
-        {
+                    zooKeeper.Feed(assignedAnimal);
+                }
+            }
+            
+            foreach(Animal animal in this.animals)
+            {
+                animal.DecreaseStamina(new Random().Next(30, 50));
+                if(this.currentCycle == 10)
+                {
+                    animal.Age++;
+                    this.currentCycle = 0;
+                }
+            }
 
+            this.currentCycle++;
         }
     }
 }
