@@ -12,10 +12,10 @@ namespace Zoo_OOP_Task
         static void Main()
         {
             var bengalTiger = new Tiger("Razor", 1);
-            var whiteTiger = new Tiger("Pesho", 0);
-            var brownTiger = new Tiger("Gosho", 1);
-            var megaTiger = new Tiger("Izrud", 2);
-            var lameTiger = new Tiger("WTF", 26);
+            var whiteTiger = new Tiger("Kali", 0);
+            var brownTiger = new Tiger("Chochko", 1);
+            var megaTiger = new Tiger("SBTech Tiger", 2);
+            var lameTiger = new Tiger("Obicham da qm", 21);
 
             var peshoTheKeeper = new ZooKeeper();
             var goshoTheKeeper = new ZooKeeper();
@@ -38,7 +38,7 @@ namespace Zoo_OOP_Task
             zoo.AddZooKeeper(peshoTheKeeper);
             zoo.AddZooKeeper(goshoTheKeeper);
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 120; i++)
             {
                 zoo.TriggerCycle();
             }

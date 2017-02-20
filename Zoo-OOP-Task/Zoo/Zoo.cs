@@ -9,6 +9,7 @@ namespace Zoo_OOP_Task.ZooNS
     public sealed class Zoo
     {
         private const byte ZooKepperMood = 3;
+        private const byte ActiveStamina = 20;
 
         private IList<Animal> animals;
         private IList<ZooKeeper> zooKeepers;
@@ -118,8 +119,21 @@ namespace Zoo_OOP_Task.ZooNS
             var rand = new Random();
             foreach (Animal animal in this.animals)
             {
+                if(!animal.IsAlive())
+                {
+                    continue;
+                }
+
                 int randomNumber = rand.Next(20, 50);
-                animal.DecreaseStamina(randomNumber);
+                if (animal.Stamina >= ActiveStamina)
+                {
+                    animal.DecreaseStamina(randomNumber);
+                }
+                else if(animal.Stamina < ActiveStamina)
+                {
+                    Console.WriteLine("{0} is tired and will sleep to regain stamina!", animal.Name);
+                    animal.IncreaseStamina(rand.Next(10, 20));
+                }
 
                 if (this.currentCycle % 10 == 0)
                 {

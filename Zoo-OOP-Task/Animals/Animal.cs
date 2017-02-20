@@ -126,6 +126,11 @@ namespace Zoo_OOP_Task.Animals
 
         public virtual void DecreaseStamina(int staminaToDecrease)
         {
+            if(!this.IsAlive())
+            {
+                return;
+            }
+
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(String.Format("{0} decreased stamina by {1}",
                 this.Name, staminaToDecrease));
