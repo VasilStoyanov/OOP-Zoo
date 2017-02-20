@@ -36,15 +36,15 @@ namespace Zoo_OOP_Task.Animals
         public Animal(byte lowLifespan, byte highLifespan, string name, uint age, DateTime birthDay, int stamina)
         {
             this.Name = name;
+            this.averageLifeSpan = GenerateRandomTigerLifespanInRange(new Random(), lowLifespan, highLifespan);
             this.Age = age;
             this.Birthdate = birthDay;
             this.Stamina = stamina;
-            this.averageLifeSpan = GenerateRandomTigerLifespanInRange(new Random(), lowLifespan, highLifespan);
         }
 
-        public virtual uint CalculateLifeExpectancy()
+        public virtual int CalculateLifeExpectancy()
         {
-            return this.averageLifeSpan - this.age;
+            return (int)this.averageLifeSpan - (int)this.age;
         }
 
         public virtual string Name
@@ -91,6 +91,11 @@ namespace Zoo_OOP_Task.Animals
                 if(value >= UInt32.MinValue  && value < UInt32.MaxValue)
                 {
                     this.age = value;
+                    if (!this.IsAlive())
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("{0} DIED!", this.Name);
+                    }
                 }
             }
         }
@@ -104,17 +109,12 @@ namespace Zoo_OOP_Task.Animals
             private set
             {
                 this.stamina = value;
-                if(this.stamina <= 0)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("{0} DIED!", this.Name);
-                }
             }
         }
 
         public virtual bool IsAlive()
         {
-            return (this.averageLifeSpan - this.age) > 0 ? true : false;
+            return ((int)this.averageLifeSpan - (int)this.age) > 0 ? true : false;
         }
 
         public virtual bool IsActive()

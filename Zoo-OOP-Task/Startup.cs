@@ -15,7 +15,7 @@ namespace Zoo_OOP_Task
             var whiteTiger = new Tiger("Pesho", 0);
             var brownTiger = new Tiger("Gosho", 1);
             var megaTiger = new Tiger("Izrud", 2);
-            var lameTiger = new Tiger("WTF", 1);
+            var lameTiger = new Tiger("WTF", 26);
 
             var peshoTheKeeper = new ZooKeeper();
             var goshoTheKeeper = new ZooKeeper();
