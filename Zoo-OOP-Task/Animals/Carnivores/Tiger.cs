@@ -37,7 +37,11 @@ namespace Zoo_OOP_Task.Animals.Carnivores
 
         public override void Eat(AnimalFood food)
         {
-            if (food.FoodType != AnimalFoodType.Meat)
+            if(food == null)
+            {
+                throw new ArgumentNullException("Food cannot be null");
+            }
+            else if (food.FoodType != AnimalFoodType.Meat)
             {
                 Console.WriteLine("I am a carnivore. I eat only meat!");
                 return;
@@ -52,7 +56,7 @@ namespace Zoo_OOP_Task.Animals.Carnivores
 
         public override string Speak()
         {
-            return String.Format("Tiger " + this.Name + " says: " + TigerSpeech);
+            return TigerSpeech;
         }
     }
 }

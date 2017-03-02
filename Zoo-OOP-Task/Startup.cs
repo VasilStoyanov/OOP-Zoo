@@ -7,9 +7,14 @@ namespace Zoo_OOP_Task
     using ZooKeepers;
     using ZooNS;
 
-    class Startup
+    public class Startup
     {
         static void Main()
+        {
+            RunDemo();
+        }
+
+        public static void RunDemo()
         {
             var bengalTiger = new Tiger("Razor", 1);
             var whiteTiger = new Tiger("Kali", 0);

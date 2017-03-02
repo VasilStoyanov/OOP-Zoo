@@ -73,7 +73,6 @@ namespace Zoo_OOP_Task.ZooKeepers
             this.assignedAnimals.Add(animal);
         }
 
-        //TODO: Remove hidden dependencies
         public void Feed(Animal animalToFeed)
         {
             if (animalToFeed.ZooKeeperId != this.id)
@@ -82,7 +81,7 @@ namespace Zoo_OOP_Task.ZooKeepers
                 return;
             }
 
-            // If the animal is dead, we dont feed it!
+            // If the animal is dead, we dont feed it.
             if(!animalToFeed.IsAlive())
             {
                 return;
